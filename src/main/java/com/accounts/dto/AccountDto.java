@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
+@ToString
 public class AccountDto {
     private String firstName;
     private String secondName;
@@ -16,11 +17,11 @@ public class AccountDto {
     private String email;
     private String phoneNumber;
     private String address;
-    private int age;
+    private Integer age;
     private String gender;
     private String nationality;
     private String nationalId;
-    private long accountNumber;
+    private Long accountNumber;
 //    private AccountStatusEnums accountStatusEnums;
     private String  accountStatus;
 
