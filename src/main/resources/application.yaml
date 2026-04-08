@@ -3,6 +3,7 @@ spring:
     name: accounts
   config:
     import: "optional:configserver:http://localhost:8083"
+
 server:
   servlet:
     context-path: /account-service
