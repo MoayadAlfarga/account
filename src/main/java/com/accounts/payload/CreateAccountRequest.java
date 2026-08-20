@@ -10,12 +10,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
+@ToString
 public class CreateAccountRequest {
     private String firstName;
     private String secondName;
     private String thirdName;
     private String address;
-    private int age;
+    private Integer age;
     private LocalDate birthDate;
     private String gender;
     private String nationality;
