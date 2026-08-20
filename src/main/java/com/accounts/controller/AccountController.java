@@ -49,4 +49,9 @@ public class AccountController {
 //    public ResponseEntity<AccountDto> updateAccount(@PathVariable Long id, @RequestBody UpdateAccountRequest request) {
 //        return ResponseEntity.ok(accountService.updateAccountInformation(id, request));
 //    }
+
+    //    @PutMapping("{id}")
+//    public ResponseEntity<AccountDto> updateAccount(@PathVariable Long id, @RequestBody UpdateAccountRequest request) {
+//        return ResponseEntity.ok(accountService.updateAccountInformation(id, request));
+//    }
 }
