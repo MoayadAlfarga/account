@@ -31,15 +31,19 @@ public class AccountService {
 
     @Transactional
     public AccountDto createAccount(CreateAccountRequest request) {
-        log.info("Creating Account for nationalId: {}", request.getNationalId());
-        accountRepository.findByNationalId(request.getNationalId()).ifPresent(account -> {
-            throw new AccountAlreadyExistsException("Account", "nationalId", request.getNationalId());
-        });
+        checkIfAlreadyExists(request);
         Account account = buildCreateAccountInformation(request);
         AccountStatus accountStatus = fillStatusAccount(account);
         account.setStatus(accountStatus);
         Account savedAccount = saveAccount(account);
         return AccountDto.fromEntity(savedAccount);
+    }
+
+    private void checkIfAlreadyExists(CreateAccountRequest request) {
+        log.info("Creating Account for nationalId: {}", request.getNationalId());
+        accountRepository.findByNationalId(request.getNationalId()).ifPresent(account -> {
+            throw new AccountAlreadyExistsException("Account", "nationalId", request.getNationalId());
+        });
     }
 
     private Account saveAccount(Account account) {
@@ -62,6 +66,14 @@ public class AccountService {
         if (request == null) {
             return;
         }
+        // request.getFirstName() ==> yamen
+        // Optional optional = yamen
+        // optional is prisent ? true
+        // account set name
+
+        // request.getFirstName() ==> null
+        // Optional optional = null
+        // optional is prisent ? false
         Optional.ofNullable(request.getFirstName()).ifPresent(account::setFirstName);
         Optional.ofNullable(request.getSecondName()).ifPresent(account::setSecondName);
         Optional.ofNullable(request.getThirdName()).ifPresent(account::setThirdName);
