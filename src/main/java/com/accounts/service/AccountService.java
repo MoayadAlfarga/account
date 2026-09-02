@@ -66,14 +66,6 @@ public class AccountService {
         if (request == null) {
             return;
         }
-        // request.getFirstName() ==> yamen
-        // Optional optional = yamen
-        // optional is prisent ? true
-        // account set name
-
-        // request.getFirstName() ==> null
-        // Optional optional = null
-        // optional is prisent ? false
         Optional.ofNullable(request.getFirstName()).ifPresent(account::setFirstName);
         Optional.ofNullable(request.getSecondName()).ifPresent(account::setSecondName);
         Optional.ofNullable(request.getThirdName()).ifPresent(account::setThirdName);
